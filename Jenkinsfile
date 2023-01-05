@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 script {
-                    def props = readProperties file: 'list_of_repos.properties'
+                    def props = readProperties file: 'list_of_repo.properties'
                     env.list_of_repo = props.list_of_repos
                     for (repo in list_of_repo.split(","))
                     {
