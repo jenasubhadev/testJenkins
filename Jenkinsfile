@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Reading properties from properties file') {
             when {
-                expression { params.override_list_of_repo == null }
+                expression { params.override_list_of_repo == "" }
             }
             steps {
                 script {
