@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     def props = readProperties file: 'extravars.properties'
-                    env.Username = props.Username
+                    env.Username = props.list_of_repos
                 }
                 echo "The username  is $Username"
             }
