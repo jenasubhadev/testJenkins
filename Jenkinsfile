@@ -9,7 +9,7 @@ pipeline {
         string(name: "override_list_of_repo", defaultValue: "", trim: true, description: "Sample string parameter")
     }
     stages {
-        stage('Read Repository') {
+        stage('Read properties from override vars') {
             when {
                 expression { params.override_list_of_repo != "" }
             }
