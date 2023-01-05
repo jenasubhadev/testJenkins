@@ -2,14 +2,11 @@ pipeline {
 
     agent any
 
-    environment {
-        list_of_repos = 'abc,def,ghi'
-    }
     parameters {
-        string(name: "override_list_of_repo", defaultValue: "", trim: true, description: "Sample string parameter")
+        string(name: "override_list_of_repo", defaultValue: "", trim: true, description: "Multiple Target Repositories for version upgrade")
     }
     stages {
-        stage('Read properties from override vars') {
+        stage('Reading repositories from override list of target repositories') {
             when {
                 expression { params.override_list_of_repo != "" }
             }
@@ -17,13 +14,12 @@ pipeline {
                 script {
                     for (repo in override_list_of_repo.split(","))
                     {
-                        println("${repo}")
+                        gke_version_upgrade(repo)
                     }
-                    echo "Hello $params.override_list_of_repo"
                 }
             }
         }
-        stage('Reading properties from properties file') {
+        stage('Reading repositories from properties file') {
             when {
                 expression { params.override_list_of_repo == "" }
             }
@@ -33,7 +29,7 @@ pipeline {
                     env.list_of_repo = props.list_of_repos
                     for (repo in list_of_repo.split(","))
                     {
-                        println("${repo}")
+                        gke_version_upgrade(repo)
                     }
                 }
             }
