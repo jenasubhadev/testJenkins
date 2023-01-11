@@ -43,7 +43,7 @@ pipeline {
                 script {
                     def configVal = readYaml file: 'manifest.yml'
                     echo "configVal: " + configVal
-                    
+                    echo configVal['applications']['name'][0]
                 }
             }
 
