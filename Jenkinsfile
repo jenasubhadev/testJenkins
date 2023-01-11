@@ -49,6 +49,13 @@ pipeline {
             }
 
         }
+		stage('Demo') {
+			steps {
+				sh '''
+					find . -type f -name "tfvars.yml" -print
+				'''
+			}
+		}
 
     }
 
