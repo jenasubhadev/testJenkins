@@ -68,5 +68,3 @@ pipeline {
 		}
     }
 }
-
-grep "searching" $(find . -name "*.txt")
