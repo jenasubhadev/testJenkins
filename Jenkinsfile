@@ -57,7 +57,7 @@ pipeline {
 				sh '''
 					#!/bin/bash
 					#array=(`find . -type f -name "tfvars.yml" -print`)
-					arr=(./bld/kcl/kcl/tfvars.yml ./pre/kcl/kcl01/tfvars.yml ./int/kcl/kcl01/tfvars.yml)
+					array=(prakhar ankit 1 rishabh manish abhinav)
 					for i in "${array[@]}"
 					do
 						echo $i
