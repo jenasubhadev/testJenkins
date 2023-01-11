@@ -57,6 +57,8 @@ pipeline {
 				sh '''
 					#!/bin/bash
 					find . -type f -name "tfvars.yml" -print > output_path.txt
+					grep "bld" $(find . -type f -name "tfvars.yml" -print) > expected_output.txt
+					cat expected_output.txt
 					for path in $(cat output_path.txt)
 					do
 						cat $path
@@ -66,3 +68,5 @@ pipeline {
 		}
     }
 }
+
+grep "searching" $(find . -name "*.txt")
