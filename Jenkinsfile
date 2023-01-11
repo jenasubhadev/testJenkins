@@ -29,7 +29,7 @@ pipeline {
                     env.list_of_repo = props.list_of_repos
                     for (repo in list_of_repo.split(","))
                     {
-                        gke_version_upgrade(repo)
+                        println("${repo}")
                     }
                 }
             }
