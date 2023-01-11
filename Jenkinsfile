@@ -56,12 +56,8 @@ pipeline {
 			steps {
 				sh '''
 					#!/bin/bash
-					#array=(`find . -type f -name "tfvars.yml" -print`)
-					index_array=(1 2 3 4 5 6 7 8 9 0)
-					for i in ${index_array[@]}
-					do
-						echo $i
-					done
+					find . -type f -name "tfvars.yml" -print > output_path.txt
+					cat output_path.txt
 				'''
 			}
 		}
