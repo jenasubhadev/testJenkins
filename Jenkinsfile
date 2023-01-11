@@ -58,6 +58,10 @@ pipeline {
 					#!/bin/bash
 					find . -type f -name "tfvars.yml" -print > output_path.txt
 					cat output_path.txt
+					for path in $(cat output_path.txt)
+					do
+						echo $path
+					done
 				'''
 			}
 		}
