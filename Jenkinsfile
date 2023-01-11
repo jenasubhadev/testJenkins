@@ -41,7 +41,7 @@ pipeline {
             }
             steps {
                 script {
-                    def props = readYaml file: 'manifest.yml'
+                    def configVal = readYaml file: 'manifest.yml'
                     echo "configVal: " + configVal
                     
                 }
