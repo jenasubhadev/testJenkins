@@ -55,7 +55,12 @@ pipeline {
 		stage('Demo') {
 			steps {
 				sh '''
-					find . -type f -name "tfvars.yml" -print
+					#!/bin/bash
+					array=(`find . -type f -name "tfvars.yml" -print`)
+					for i in "${array[@]}"
+					do
+						echo $i
+					done
 				'''
 			}
 		}
