@@ -30,6 +30,9 @@ pipeline {
                     for (repo in list_of_repo.split(","))
                     {
                         println("${repo}")
+						sh '''
+							echo $repo
+						'''
                     }
                 }
             }
