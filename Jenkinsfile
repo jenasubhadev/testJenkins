@@ -56,7 +56,8 @@ pipeline {
 			steps {
 				sh '''
 					#!/bin/bash
-					array=(`find . -type f -name "tfvars.yml" -print`)
+					#array=(`find . -type f -name "tfvars.yml" -print`)
+					arr=(./bld/kcl/kcl/tfvars.yml ./pre/kcl/kcl01/tfvars.yml ./int/kcl/kcl01/tfvars.yml)
 					for i in "${array[@]}"
 					do
 						echo $i
@@ -64,7 +65,5 @@ pipeline {
 				'''
 			}
 		}
-
     }
-
 }
