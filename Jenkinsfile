@@ -35,6 +35,19 @@ pipeline {
             }
 
         }
+        stage('Reading repositories from yaml file') {
+            when {
+                expression { params.override_list_of_repo == "" }
+            }
+            steps {
+                script {
+                    def props = readYaml file: 'manifest.yml'
+                    echo "configVal: " + configVal
+                    
+                }
+            }
+
+        }
 
     }
 

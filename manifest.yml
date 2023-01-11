@@ -1,0 +1,22 @@
+---
+applications:
+- name: service-api
+  target: https://api.dev.roytuts.com/
+  space: app-dev
+  organization: roytuts-com
+  disk_quota: 1024M
+  memory: 1024M
+  instances: 2
+  buildpacks:
+  - java-buildpack-openjdk-v4-49-1
+  stack: cflinuxfs3
+  routes:
+  - route: dev.roytuts.com/serviceapi-dev
+  services:
+    - svcmysql
+  
+  env:
+     SPRING_PROFILE: dev
+     JAVA_OPTS: -Duser.timezone=America/New_York -Dappdynamics.http.proxyHost=proxy.roytuts.com -Dappdynamics.http.proxyPort=8080 -Dappdynamics.agent.applicationName=ServiceAPI -Dappdynamics.agent.tierName=service-api-dev
+     PROXY_HOST: proxy.roytuts.com
+     ssl_enabled: true
