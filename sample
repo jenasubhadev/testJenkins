@@ -1,3 +1,18 @@
 jobs:  
   - script: >
       folder('Utility')
+      
+  - script: >      
+      freeStyleJob("Utility/Jobs-Generator"){   
+        parameters{
+          stringParam('seed_branch','master','Branch to checkout seed job')
+        }
+        scm {
+          git {
+                     branch('$seed_branch')
+                     remote {
+                         url('https://github.com/jenasubhadev/testJenkins.git')
+                     } 
+                  }
+              }        
+      }
